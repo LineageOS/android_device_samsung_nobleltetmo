@@ -1,5 +1,7 @@
-# Extracted with libbootimg
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --dt device/samsung/nobleltetmo/dtb.img
+LOCAL_PATH := device/samsung/nobleltetmo
+
+# Include path
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Kernel
 TARGET_KERNEL_CONFIG := cm_nobleltetmo_defconfig
