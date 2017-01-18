@@ -21,6 +21,18 @@ on fs
     chmod 0660 /sys/devices/virtual/misc/umts_dm0/dm_state
     chown radio system /sys/devices/virtual/misc/umts_dm0/dm_state
 
+on post-fs-data
+    rm -r /data/data/com.android.providers.telephony/databases
+    rm -r /data/data/com.android.providers.telephony/shared_prefs
+
+    # Symlink telephony.db and preferred-apn.xml
+    symlink /data/user_de/0/com.android.providers.telephony/databases /data/data/com.android.providers.telephony/databases
+    symlink /data/user_de/0/com.android.providers.telephony/shared_prefs /data/data/com.android.providers.telephony/shared_prefs
+
+    # restart RIL <--> modem stack to account for new locations
+    restart cpboot-daemon
+    restart ril-daemon
+
 # CP Boot Daemon (CBD)
 service cpboot-daemon /sbin/cbd -d -t ss333 -b s -m l -P platform/15570000.ufs/by-name/RADIO
     class main
