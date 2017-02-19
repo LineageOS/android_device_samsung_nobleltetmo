@@ -1,16 +1,10 @@
 LOCAL_PATH := device/samsung/nobleltetmo
 
-###########################################################
-### RAMDISK
-###########################################################
-
+# Ramdisk
 PRODUCT_PACKAGES += \
     init.baseband.rc
 
-###########################################################
-### RADIO
-###########################################################
-
+# Radio
 # cpboot-daemon for modem
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/ril/sbin/cbd:root/sbin/cbd
@@ -18,3 +12,6 @@ PRODUCT_COPY_FILES += \
 # Bluetooth
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+
+# call the proprietary setup
+$(call inherit-product, vendor/samsung/nobleltetmo/nobleltetmo-vendor.mk)
