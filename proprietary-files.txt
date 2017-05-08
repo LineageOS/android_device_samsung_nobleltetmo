@@ -1,3 +1,9 @@
 # Audio firmware
 etc/firmware/audience-es804-data.bin
 etc/firmware/audience-es804-fw.bin
+
+### RIL
+lib/libsecnativefeature.so
+lib64/libsecnativefeature.so
+lib/libsec-ril.so
+lib64/libsec-ril.so
