@@ -1,0 +1,4 @@
+####################################
+# deamons
+#
+/system/bin/modemloader      u:object_r:modemloader_exec:s0
