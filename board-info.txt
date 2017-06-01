@@ -1,0 +1,1 @@
+require version-bootloader=N920TUVU4EQC6|N920TUVU4EQE1
